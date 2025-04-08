@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Image Slider</title>
+  <style>
+    #slider {
+      max-width: 500px;
+      margin: auto;
+      text-align: center;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="slider">
+    <img id="sliderImage" src="" alt="Slider Image" />
+    <button onclick="prevImage()">Previous</button>
+    <button onclick="nextImage()">Next</button>
+  </div>
+
+  <script>
+    const images = [
+      "https://via.placeholder.com/500x300?text=Image+1",
+      "https://via.placeholder.com/500x300?text=Image+2",
+      "https://via.placeholder.com/500x300?text=Image+3"
+    ];
+    let current = 0;
+
+    function showImage() {
+      document.getElementById("sliderImage").src = images[current];
+    }
+
+    function nextImage() {
+      current = (current + 1) % images.length;
+      showImage();
+    }
+
+    function prevImage() {
+      current = (current - 1 + images.length) % images.length;
+      showImage();
+    }
+
+    showImage();
+  </script>
+</body>
+</html>
